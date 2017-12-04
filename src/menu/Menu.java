@@ -13,6 +13,7 @@ import java.util.Scanner;
 import classes.TestBinaryTree;
 import classes.TestWordCountTree;
 import main.EuclidGCD;
+import main.TowersOfHanoi;
 import programs.FahrenheitToCentigrade;
 import programs.FeetToCentimeters;
 import programs.OzToGrams;
@@ -75,6 +76,8 @@ public class Menu {
 			        break;
 			case 9: EuclidGCD.main(null);
 			        break;
+			case 10: TowersOfHanoi.main(null);
+			        break;
 			default: System.out.println("There is no program number " + programChoice);
 					getProgramChoice();
 					break;
@@ -96,6 +99,8 @@ public class Menu {
 				" to a binary search tree.");
 		System.out.println("Enter 8 to run a program which produces a binary tree from a list of words in a text file.");
 		System.out.println("Enter 9 to run a program which will find the Greatest Common Divisor of two integers.");
+		System.out.println("Enter 10 to run a program which produces a visualization of the solution to the classic" +
+				" Towers of Hanoi puzzle.");
 		System.out.println("Enter 99 to quit.");
 	}
 	
