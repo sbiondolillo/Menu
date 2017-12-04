@@ -14,6 +14,7 @@ import classes.TestBinaryTree;
 import classes.TestWordCountTree;
 import main.EuclidGCD;
 import main.SieveOfEratosthenes;
+import main.SortingComparison;
 import main.TowersOfHanoi;
 import programs.FahrenheitToCentigrade;
 import programs.FeetToCentimeters;
@@ -81,6 +82,8 @@ public class Menu {
 			        break;
 			case 11: SieveOfEratosthenes.main(null);
 	        		break;
+			case 12: SortingComparison.main(null);
+			        break;
 			default: System.out.println("There is no program number " + programChoice);
 					getProgramChoice();
 					break;
@@ -105,6 +108,7 @@ public class Menu {
 		System.out.println("Enter 10 to run a program which produces a visualization of the solution to the classic" +
 				" Towers of Hanoi puzzle.");
 		System.out.println("Enter 11 to run a program which generates a stack of the prime numbers from 2 to 1000.");
+		System.out.println("Enter 12 to run a program which compares execution time of three sorting algorithms.");
 		System.out.println("Enter 99 to quit.");
 	}
 	

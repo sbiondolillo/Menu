@@ -13,5 +13,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/EuclidGCD"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/RecursiveTowers"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SieveOfEratosthenes"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SortingComparison"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
