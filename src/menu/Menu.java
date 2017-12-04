@@ -9,6 +9,13 @@
 package menu;
 import java.io.IOException;
 import java.util.Scanner;
+
+import classes.TestBinaryTree;
+import classes.TestWordCountTree;
+import main.EuclidGCD;
+import main.SieveOfEratosthenes;
+import main.SortingComparison;
+import main.TowersOfHanoi;
 import programs.FahrenheitToCentigrade;
 import programs.FeetToCentimeters;
 import programs.OzToGrams;
@@ -65,6 +72,18 @@ public class Menu {
 					break;
 			case 6: TextToOrderedList.main(null);
 					break;
+			case 7: TestBinaryTree.main(null);
+			        break;
+			case 8: TestWordCountTree.main(null);
+			        break;
+			case 9: EuclidGCD.main(null);
+			        break;
+			case 10: TowersOfHanoi.main(null);
+			        break;
+			case 11: SieveOfEratosthenes.main(null);
+	        		break;
+			case 12: SortingComparison.main(null);
+			        break;
 			default: System.out.println("There is no program number " + programChoice);
 					getProgramChoice();
 					break;
@@ -82,6 +101,14 @@ public class Menu {
 		System.out.println("Enter 5 to run a program which generates a rectangular field of characters.");
 		System.out.println("Enter 6 to run a program which turns text into an ordered list made of the characters" +
 				" from that text.");
+		System.out.println("Enter 7 to run a program which produces a visualization of a series of modifications" +
+				" to a binary search tree.");
+		System.out.println("Enter 8 to run a program which produces a binary tree from a list of words in a text file.");
+		System.out.println("Enter 9 to run a program which will find the Greatest Common Divisor of two integers.");
+		System.out.println("Enter 10 to run a program which produces a visualization of the solution to the classic" +
+				" Towers of Hanoi puzzle.");
+		System.out.println("Enter 11 to run a program which generates a stack of the prime numbers from 2 to 1000.");
+		System.out.println("Enter 12 to run a program which compares execution time of three sorting algorithms.");
 		System.out.println("Enter 99 to quit.");
 	}
 	

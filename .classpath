@@ -8,5 +8,11 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/PrimeNumberGenerator"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/TwoDimensionalArray"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/TextToOrderedList"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BinaryTree"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/WordCountTree"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EuclidGCD"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/RecursiveTowers"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SieveOfEratosthenes"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SortingComparison"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
