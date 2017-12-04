@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import classes.TestBinaryTree;
+import classes.TestWordCountTree;
 import programs.FahrenheitToCentigrade;
 import programs.FeetToCentimeters;
 import programs.OzToGrams;
@@ -69,6 +70,8 @@ public class Menu {
 					break;
 			case 7: TestBinaryTree.main(null);
 			        break;
+			case 8: TestWordCountTree.main(null);
+			        break;
 			default: System.out.println("There is no program number " + programChoice);
 					getProgramChoice();
 					break;
@@ -88,6 +91,7 @@ public class Menu {
 				" from that text.");
 		System.out.println("Enter 7 to run a program which produces a visualization of a series of modifications" +
 				" to a binary search tree.");
+		System.out.println("Enter 8 to run a program which produces a binary tree from a list of words in a text file.");
 		System.out.println("Enter 99 to quit.");
 	}
 	
