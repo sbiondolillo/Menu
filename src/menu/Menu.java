@@ -9,6 +9,8 @@
 package menu;
 import java.io.IOException;
 import java.util.Scanner;
+
+import classes.TestBinaryTree;
 import programs.FahrenheitToCentigrade;
 import programs.FeetToCentimeters;
 import programs.OzToGrams;
@@ -65,6 +67,8 @@ public class Menu {
 					break;
 			case 6: TextToOrderedList.main(null);
 					break;
+			case 7: TestBinaryTree.main(null);
+			        break;
 			default: System.out.println("There is no program number " + programChoice);
 					getProgramChoice();
 					break;
@@ -82,6 +86,8 @@ public class Menu {
 		System.out.println("Enter 5 to run a program which generates a rectangular field of characters.");
 		System.out.println("Enter 6 to run a program which turns text into an ordered list made of the characters" +
 				" from that text.");
+		System.out.println("Enter 7 to run a program which produces a visualization of a series of modifications" +
+				" to a binary search tree.");
 		System.out.println("Enter 99 to quit.");
 	}
 	

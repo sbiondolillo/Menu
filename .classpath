@@ -8,5 +8,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/PrimeNumberGenerator"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/TwoDimensionalArray"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/TextToOrderedList"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BinaryTree"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
