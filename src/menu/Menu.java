@@ -4,6 +4,7 @@
  * CIS210M:ZZ Data Structures and Elementary Algorithms
  * Goal: To create a user interface for running the various programs built in class
  * Version 0.0.1 - 9/21/17
+ *         0.0.2 - 12/8/17  Add introduceProgram() and returntoMainMenu() methods, reorganize class
  */
 
 package menu;
@@ -28,8 +29,59 @@ public class Menu {
 	private static Scanner input = new Scanner(System.in);
 
 	/*
-	 * Prompt the user to select a program to be run from the list of available programs
+	 * Main - Gets a program choice from the user and then executes that program
+	 * 	 	  will continue to prompt for more choices until the user quits
 	 */
+	public static void main(String[] args) throws IOException {
+		
+		introduceProgram();
+		
+		while (true) {
+			
+			printProgramList();
+			int programChoice = getProgramChoice();
+			
+			if (programChoice == 99) {
+				System.out.println();
+				System.out.println("Goodbye.");
+				input.close();
+				System.exit(0);
+			}
+			else {
+				runProgram(programChoice);
+				returnToMainMenu();
+			}
+		}
+
+	}
+	
+	private static void introduceProgram() {
+		System.out.println("Welcome to the Data Structures & Algorithms Utility Menu");
+		System.out.println();
+		System.out.println("This program will allow you to run a number of utility programs along with some visualizations");
+		System.out.println("of common data structures, algorithms, and their applications in problem solving.");
+		System.out.println();
+	}
+	
+	private static void printProgramList() {
+		System.out.println("Enter 1 to run a program which converts degrees Fahrenheit to degrees Centigrade.");
+		System.out.println("Enter 2 to run a program which converts distance in Feet to Centimeters.");
+		System.out.println("Enter 3 to run a program which converts mass in Ounces to Grams.");
+		System.out.println("Enter 4 to run a program which generates a list of prime numbers.");
+		System.out.println("Enter 5 to run a program which generates a rectangular field of characters.");
+		System.out.println("Enter 6 to run a program which turns text into an ordered list made of the characters" +
+				" from that text.");
+		System.out.println("Enter 7 to run a program which produces a visualization of a series of modifications" +
+				" to a binary search tree.");
+		System.out.println("Enter 8 to run a program which produces a binary tree from a list of words in a text file.");
+		System.out.println("Enter 9 to run a program which will find the Greatest Common Divisor of two integers.");
+		System.out.println("Enter 10 to run a program which produces a visualization of the solution to the classic" +
+				" Towers of Hanoi puzzle.");
+		System.out.println("Enter 11 to run a program which generates a stack of the prime numbers from 2 to 1000.");
+		System.out.println("Enter 12 to run a program which compares execution time of three sorting algorithms.");
+		System.out.println("Enter 99 to quit.");
+	}
+	
 	private static int getProgramChoice() {
 		String userSelection;
 		int programChoice;
@@ -52,10 +104,6 @@ public class Menu {
 		return programChoice;
 	}
 	
-	/*
-	 * Execute the program selected by the user or notify of an improper choice
-	 * @param programChoice - integer representing a program selected from the menu
-	 */
 	private static void runProgram(int programChoice) throws IOException {
 		switch (programChoice) {
 			case 1: FahrenheitToCentigrade.main(null);
@@ -86,63 +134,6 @@ public class Menu {
 					getProgramChoice();
 					break;
 		}
-	}
-	
-	/*
-	 * Display a list of all valid entries for program selection
-	 */
-	private static void printProgramList() {
-		System.out.println("Enter 1 to run a program which converts degrees Fahrenheit to degrees Centigrade.");
-		System.out.println("Enter 2 to run a program which converts distance in Feet to Centimeters.");
-		System.out.println("Enter 3 to run a program which converts mass in Ounces to Grams.");
-		System.out.println("Enter 4 to run a program which generates a list of prime numbers.");
-		System.out.println("Enter 5 to run a program which generates a rectangular field of characters.");
-		System.out.println("Enter 6 to run a program which turns text into an ordered list made of the characters" +
-				" from that text.");
-		System.out.println("Enter 7 to run a program which produces a visualization of a series of modifications" +
-				" to a binary search tree.");
-		System.out.println("Enter 8 to run a program which produces a binary tree from a list of words in a text file.");
-		System.out.println("Enter 9 to run a program which will find the Greatest Common Divisor of two integers.");
-		System.out.println("Enter 10 to run a program which produces a visualization of the solution to the classic" +
-				" Towers of Hanoi puzzle.");
-		System.out.println("Enter 11 to run a program which generates a stack of the prime numbers from 2 to 1000.");
-		System.out.println("Enter 12 to run a program which compares execution time of three sorting algorithms.");
-		System.out.println("Enter 99 to quit.");
-	}
-	
-	/*
-	 * Main - Gets a program choice from the user and then executes that program
-	 * 	 	  will continue to prompt for more choices until the user quits
-	 */
-	public static void main(String[] args) throws IOException {
-		
-		introduceProgram();
-		
-		while (true) {
-			
-			printProgramList();
-			int programChoice = getProgramChoice();
-			// Quit when requested
-			if (programChoice == 99) {
-				System.out.println();
-				System.out.println("Goodbye.");
-				input.close();
-				System.exit(0);
-			}
-			else {
-				runProgram(programChoice);
-				returnToMainMenu();
-			}
-		}
-
-	}
-	
-	private static void introduceProgram() {
-		System.out.println("Welcome to the Data Structures & Algorithms Utility Menu");
-		System.out.println();
-		System.out.println("This program will allow you to run a number of utility programs along with some visualizations");
-		System.out.println("of common data structures, algorithms, and their applications in problem solving.");
-		System.out.println();
 	}
 	
 	private static void returnToMainMenu() {
