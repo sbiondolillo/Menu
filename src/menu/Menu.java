@@ -49,10 +49,7 @@ public class Menu {
 			}
 							
 		}
-		if (programChoice == 99)	// quit
-				return 0;
-		else 
-			return programChoice;
+		return programChoice;
 	}
 	
 	/*
@@ -126,7 +123,7 @@ public class Menu {
 			printProgramList();
 			int programChoice = getProgramChoice();
 			// Quit when requested
-			if (programChoice == 0) {
+			if (programChoice == 99) {
 				System.out.println();
 				System.out.println("Goodbye.");
 				input.close();
@@ -152,6 +149,7 @@ public class Menu {
 		System.out.println();
 		System.out.println("Please hit the 'Enter' key to return to the program selection screen.");
 		System.out.println();
+		String enter = input.nextLine();
 	}
 
 }
