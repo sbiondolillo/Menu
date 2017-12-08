@@ -24,12 +24,13 @@ import programs.TextToOrderedList;
 import programs.TwoDimensionalArray;
 
 public class Menu {
+	
+	private static Scanner input = new Scanner(System.in);
 
 	/*
 	 * Prompt the user to select a program to be run from the list of available programs
 	 */
 	private static int getProgramChoice() {
-		Scanner input = new Scanner(System.in);
 		String userSelection;
 		int programChoice;
 		while (true) {
@@ -117,24 +118,40 @@ public class Menu {
 	 * 	 	  will continue to prompt for more choices until the user quits
 	 */
 	public static void main(String[] args) throws IOException {
-		// open System.in here so we can close it when the user quits
-		Scanner input = new Scanner(System.in);
-		// use a loop so the user can run as many programs as desired
+		
+		introduceProgram();
+		
 		while (true) {
-			// Introduce the menu and get selection from user
-			System.out.println("Welcome to the Menu");
+			
+			printProgramList();
 			int programChoice = getProgramChoice();
 			// Quit when requested
 			if (programChoice == 0) {
+				System.out.println();
 				System.out.println("Goodbye.");
-				// close System.in here because doing so elsewhere crashes the program
 				input.close();
 				System.exit(0);
 			}
-			else
+			else {
 				runProgram(programChoice);
+				returnToMainMenu();
+			}
 		}
 
+	}
+	
+	private static void introduceProgram() {
+		System.out.println("Welcome to the Data Structures & Algorithms Utility Menu");
+		System.out.println();
+		System.out.println("This program will allow you to run a number of utility programs along with some visualizations");
+		System.out.println("of common data structures, algorithms, and their applications in problem solving.");
+		System.out.println();
+	}
+	
+	private static void returnToMainMenu() {
+		System.out.println();
+		System.out.println("Please hit the 'Enter' key to return to the program selection screen.");
+		System.out.println();
 	}
 
 }
