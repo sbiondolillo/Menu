@@ -86,13 +86,9 @@ public class Menu {
 		String userSelection;
 		int programChoice;
 		while (true) {
-			System.out.println("Please make a selection. You may enter enter 'help' for list of options: ");
+			System.out.print("Please make a selection: ");
 			userSelection = input.nextLine();
-			if (userSelection.toLowerCase().equals("help")) {
-				printProgramList();
-				continue;
-			} 
-			else if (userSelection.matches("\\d+")) { // any number of digits
+			if (userSelection.matches("\\d+")) { // any number of digits
 				programChoice = Integer.parseInt(userSelection);
 				break;
 			} else {
