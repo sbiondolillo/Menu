@@ -4,6 +4,7 @@
  * CIS210M:ZZ Data Structures and Elementary Algorithms
  * Goal: To create a user interface for running the various programs built in class
  * Version 0.0.1 - 9/21/17
+ *         0.0.2 - 12/8/17  Add introduceProgram() and returntoMainMenu() methods, reorganize class
  */
 
 package menu;
@@ -24,22 +25,70 @@ import programs.TextToOrderedList;
 import programs.TwoDimensionalArray;
 
 public class Menu {
+	
+	private static Scanner input = new Scanner(System.in);
 
 	/*
-	 * Prompt the user to select a program to be run from the list of available programs
+	 * Main - Gets a program choice from the user and then executes that program
+	 * 	 	  will continue to prompt for more choices until the user quits
 	 */
+	public static void main(String[] args) throws IOException {
+		
+		introduceProgram();
+		
+		while (true) {
+			
+			printProgramList();
+			int programChoice = getProgramChoice();
+			
+			if (programChoice == 99) {
+				System.out.println();
+				System.out.println("Goodbye.");
+				input.close();
+				System.exit(0);
+			}
+			else {
+				runProgram(programChoice);
+				returnToMainMenu();
+			}
+		}
+
+	}
+	
+	private static void introduceProgram() {
+		System.out.println("Welcome to the Data Structures & Algorithms Utility Menu");
+		System.out.println();
+		System.out.println("This program will allow you to run a number of utility programs along with some visualizations");
+		System.out.println("of common data structures, algorithms, and their applications in problem solving.");
+		System.out.println();
+	}
+	
+	private static void printProgramList() {
+		System.out.println("Enter 1 to run a program which converts degrees Fahrenheit to degrees Centigrade.");
+		System.out.println("Enter 2 to run a program which converts distance in Feet to Centimeters.");
+		System.out.println("Enter 3 to run a program which converts mass in Ounces to Grams.");
+		System.out.println("Enter 4 to run a program which generates a list of prime numbers.");
+		System.out.println("Enter 5 to run a program which generates a rectangular field of characters.");
+		System.out.println("Enter 6 to run a program which turns text into an ordered list made of the characters" +
+				" from that text.");
+		System.out.println("Enter 7 to run a program which produces a visualization of a series of modifications" +
+				" to a binary search tree.");
+		System.out.println("Enter 8 to run a program which produces a binary tree from a list of words in a text file.");
+		System.out.println("Enter 9 to run a program which will find the Greatest Common Divisor of two integers.");
+		System.out.println("Enter 10 to run a program which produces a visualization of the solution to the classic" +
+				" Towers of Hanoi puzzle.");
+		System.out.println("Enter 11 to run a program which generates a stack of the prime numbers from 2 to 1000.");
+		System.out.println("Enter 12 to run a program which compares execution time of three sorting algorithms.");
+		System.out.println("Enter 99 to quit.");
+	}
+	
 	private static int getProgramChoice() {
-		Scanner input = new Scanner(System.in);
 		String userSelection;
 		int programChoice;
 		while (true) {
-			System.out.println("Please make a selection. You may enter enter 'help' for list of options: ");
+			System.out.print("Please make a selection: ");
 			userSelection = input.nextLine();
-			if (userSelection.toLowerCase().equals("help")) {
-				printProgramList();
-				continue;
-			} 
-			else if (userSelection.matches("\\d+")) { // any number of digits
+			if (userSelection.matches("\\d+")) { // any number of digits
 				programChoice = Integer.parseInt(userSelection);
 				break;
 			} else {
@@ -48,16 +97,9 @@ public class Menu {
 			}
 							
 		}
-		if (programChoice == 99)	// quit
-				return 0;
-		else 
-			return programChoice;
+		return programChoice;
 	}
 	
-	/*
-	 * Execute the program selected by the user or notify of an improper choice
-	 * @param programChoice - integer representing a program selected from the menu
-	 */
 	private static void runProgram(int programChoice) throws IOException {
 		switch (programChoice) {
 			case 1: FahrenheitToCentigrade.main(null);
@@ -90,51 +132,11 @@ public class Menu {
 		}
 	}
 	
-	/*
-	 * Display a list of all valid entries for program selection
-	 */
-	private static void printProgramList() {
-		System.out.println("Enter 1 to run a program which converts degrees Fahrenheit to degrees Centigrade.");
-		System.out.println("Enter 2 to run a program which converts distance in Feet to Centimeters.");
-		System.out.println("Enter 3 to run a program which converts mass in Ounces to Grams.");
-		System.out.println("Enter 4 to run a program which generates a list of prime numbers.");
-		System.out.println("Enter 5 to run a program which generates a rectangular field of characters.");
-		System.out.println("Enter 6 to run a program which turns text into an ordered list made of the characters" +
-				" from that text.");
-		System.out.println("Enter 7 to run a program which produces a visualization of a series of modifications" +
-				" to a binary search tree.");
-		System.out.println("Enter 8 to run a program which produces a binary tree from a list of words in a text file.");
-		System.out.println("Enter 9 to run a program which will find the Greatest Common Divisor of two integers.");
-		System.out.println("Enter 10 to run a program which produces a visualization of the solution to the classic" +
-				" Towers of Hanoi puzzle.");
-		System.out.println("Enter 11 to run a program which generates a stack of the prime numbers from 2 to 1000.");
-		System.out.println("Enter 12 to run a program which compares execution time of three sorting algorithms.");
-		System.out.println("Enter 99 to quit.");
-	}
-	
-	/*
-	 * Main - Gets a program choice from the user and then executes that program
-	 * 	 	  will continue to prompt for more choices until the user quits
-	 */
-	public static void main(String[] args) throws IOException {
-		// open System.in here so we can close it when the user quits
-		Scanner input = new Scanner(System.in);
-		// use a loop so the user can run as many programs as desired
-		while (true) {
-			// Introduce the menu and get selection from user
-			System.out.println("Welcome to the Menu");
-			int programChoice = getProgramChoice();
-			// Quit when requested
-			if (programChoice == 0) {
-				System.out.println("Goodbye.");
-				// close System.in here because doing so elsewhere crashes the program
-				input.close();
-				System.exit(0);
-			}
-			else
-				runProgram(programChoice);
-		}
-
+	private static void returnToMainMenu() {
+		System.out.println();
+		System.out.println("Please hit the 'Enter' key to return to the program selection screen.");
+		System.out.println();
+		String enter = input.nextLine();
 	}
 
 }
